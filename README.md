@@ -3,12 +3,11 @@ Core ingest service components, including minimal metadata representation and ca
 
 # Dependencies for Ubuntu 16.04
 
+* Update Ubuntu first
+  * `sudo apt-get update`
 * Install Java JDK and Gradle
   * `sudo apt-get install openjdk-8-jdk`
-  * `sudo apt-get gradle`
-* Install Erlang (not sure if this is necessary)
-  * `sudo dpkg -i esl-erlang_20.1-1-ubuntu-trusty_amd64.deb`
-  * `sudo apt-get install -f`
+  * `sudo apt-get install gradle`
 * Install RabbitMQ
   * `wget https://github.com/rabbitmq/rabbitmq-server/releases/download/rabbitmq_v3_6_12/rabbitmq-server_3.6.12-1_all.deb`
   * `sudo dpkg -i rabbitmq-server_3.6.12-1_all.deb`
@@ -28,4 +27,14 @@ Core ingest service components, including minimal metadata representation and ca
 # How to Build and Run
 
 * `./gradlew build`
-* `java -jar ./build/lib/*.jar`
+* `java -jar ./build/libs/ingest-core-0.0.1-SNAPSHOT.jar`
+
+# How to Test
+
+* You can follow many of the examples listed in docs/ingest-api-walkthrough.md,
+  but substitute http://api.ingest.dev.data.humancellatlas.org/ with
+  127.0.0.1:8080
+  * For instance, with step one in that document, you can run the following
+    command: `curl -X GET 127.0.0.1:8080`
+  * Or for example two: `curl -X POST -H "Content-Type: application/json"
+    127.0.0.1:8080/submissionEnvelopes -d {}`
