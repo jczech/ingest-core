@@ -20,7 +20,7 @@ Core ingest service components, including minimal metadata representation and ca
   * `sudo apt-get install -y mongodb-org`
   * `sudo service mongod start`
 * If Mongo connection is refused
-  * `sudo rm /var/lib/mongodb/mongod.lcok`
+  * `sudo rm /var/lib/mongodb/mongod.lock`
   * `sudo mongod --repair`
   * `sudo service mongod start`
 
